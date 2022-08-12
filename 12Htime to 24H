@@ -1,0 +1,40 @@
+package main
+
+import (
+	"fmt"
+	"strconv"
+	"strings"
+)
+
+func main() {
+	s := "12:10:00AM" 
+	sarray := strings.Split(s, ":")
+	
+
+	intHour, err := strconv.Atoi(sarray[0])
+	fmt.Println(intHour, err)
+	amorpm := string(sarray[2][2:])
+	if amorpm == "PM" {
+
+		if intHour < 12 {
+			intHour += 12
+		}
+
+	} else {
+		if intHour == 12 {
+			intHour -= 12
+		}
+
+	}
+
+	var hour string
+	hour = strconv.Itoa(intHour)
+	if len(hour) == 1 {
+		hour = "0" + hour
+	}
+	sarray[0] = hour
+	sarray[2] = sarray[2][0:2]
+	s = strings.Join(sarray, ":")
+	
+	fmt.Println(s)
+}
