@@ -1,3 +1,6 @@
+// This Program is to convert a 12 hour format to a 24 hour time format
+
+
 package main
 
 import (
